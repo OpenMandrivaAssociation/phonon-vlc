@@ -1,6 +1,6 @@
 %define name    phonon-vlc
 %define version 0.0.0
-%define git     20100211
+%define git     20100404
 %define rel     1
 %if %git
 %define release %mkrel 0.%git.%rel
@@ -25,7 +25,6 @@ Source0:   http://nightlies.videolan.org/build/source/%fname.tar.bz2
 %else
 Source0:   http://download.videolan.org/pub/videolan/%name/%{version}/%{fname}.tar.bz2
 %endif
-Patch0:    phonon-vlc-api-changes.patch
 License:   GPLv2+
 Group:     Video
 URL:       http://www.videolan.org/
