@@ -1,6 +1,6 @@
 %define name    phonon-vlc
 %define version 0.0.0
-%define git     20100404
+%define git     20100527
 %define rel     1
 %if %git
 %define release %mkrel 0.%git.%rel
