@@ -1,6 +1,6 @@
 %define name    phonon-vlc
-%define version 0.0.0
-%define git     20100527
+%define version 0.2.0
+%define git     0
 %define rel     1
 %if %git
 %define release %mkrel 0.%git.%rel
@@ -11,7 +11,7 @@
 %if %git
 %define fname %name-snapshot-%git
 %else
-%define fname %name-%version
+%define fname phonon-backend-vlc-%version
 %endif
 
 %define git_url git://git.videolan.org/vlc/bindings/phonon.git
@@ -23,7 +23,7 @@ Release:   %{release}
 %if %git
 Source0:   http://nightlies.videolan.org/build/source/%fname.tar.bz2
 %else
-Source0:   http://download.videolan.org/pub/videolan/%name/%{version}/%{fname}.tar.bz2
+Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon-backend-vlc/%version/src/%fname.tar.gz
 %endif
 License:   GPLv2+
 Group:     Video
