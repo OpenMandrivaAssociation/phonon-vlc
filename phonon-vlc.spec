@@ -1,5 +1,5 @@
 %define name    phonon-vlc
-%define version 0.2.0
+%define version 0.3.1
 %define git     0
 %define rel     1
 %if %git
@@ -23,20 +23,17 @@ Release:   %{release}
 %if %git
 Source0:   http://nightlies.videolan.org/build/source/%fname.tar.bz2
 %else
-Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon-backend-vlc/%version/src/%fname.tar.gz
+Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon-backend-vlc/%version/src/%fname.tar.bz2
 %endif
 License:   GPLv2+
 Group:     Video
 URL:       http://www.videolan.org/
 BuildRoot: %_tmppath/%name-%version-%release-root
 Provides:  phonon-backend
-
 BuildRequires: vlc-devel
 BuildRequires: kde4-macros
-BuildRequires: kdelibs4-devel
+BuildRequires: automoc4
 BuildRequires: phonon-devel
-
-
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
 
