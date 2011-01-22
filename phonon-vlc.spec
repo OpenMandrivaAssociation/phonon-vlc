@@ -1,30 +1,8 @@
-%define name    phonon-vlc
-%define version 0.3.1
-%define git     0
-%define rel     1
-%if %git
-%define release %mkrel 0.%git.%rel
-%else
-%define release %mkrel %rel
-%endif
-
-%if %git
-%define fname %name-snapshot-%git
-%else
-%define fname phonon-backend-vlc-%version
-%endif
-
-%define git_url git://git.videolan.org/vlc/bindings/phonon.git
-
 Summary:   VLC Backend for Phonon
-Name:      %{name}
-Version:   %{version}
-Release:   %{release}
-%if %git
-Source0:   http://nightlies.videolan.org/build/source/%fname.tar.bz2
-%else
-Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon-backend-vlc/%version/src/%fname.tar.bz2
-%endif
+Name:      phonon-vlc
+Version:   0.3.2
+Release:   %mkrel 1
+Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%version/src/phonon-backend-vlc-%version.tar.bz2
 License:   GPLv2+
 Group:     Video
 URL:       http://www.videolan.org/
@@ -33,22 +11,14 @@ Provides:  phonon-backend
 BuildRequires: vlc-devel
 BuildRequires: kde4-macros
 BuildRequires: automoc4
-BuildRequires: phonon-devel
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
+BuildRequires: phonon-devel >= 2:4.4.4
 
 %description
 This package allows Phonon (the KDE media library) to use VLC
 for audio and video playback.
 
-
 %prep
-%if %git
-%setup -q -n %name
-%else
-%setup -q -n %fname
-%endif
-%apply_patches
+%setup -qn phonon-backend-vlc-%version
 
 %build
 %cmake_kde4
