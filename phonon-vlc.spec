@@ -1,7 +1,7 @@
 Summary:   VLC Backend for Phonon
 Name:      phonon-vlc
 Version:   0.3.2
-Release:   %mkrel 2
+Release:   %mkrel 3
 Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%version/src/phonon-backend-vlc-%version.tar.bz2
 License:   GPLv2+
 Group:     Video
