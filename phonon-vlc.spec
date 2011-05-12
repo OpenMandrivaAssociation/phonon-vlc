@@ -1,7 +1,7 @@
 Summary:   VLC Backend for Phonon
 Name:      phonon-vlc
-Version:   0.3.2
-Release:   %mkrel 3
+Version:   0.4.0
+Release:   %mkrel 1
 Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%version/src/phonon-backend-vlc-%version.tar.bz2
 License:   GPLv2+
 Group:     Video
@@ -12,7 +12,7 @@ Requires:  vlc-plugin-pulse
 BuildRequires: vlc-devel
 BuildRequires: kde4-macros
 BuildRequires: automoc4
-BuildRequires: phonon-devel >= 2:4.4.4
+BuildRequires: phonon-devel >= 2:4.5.0
 
 %description
 This package allows Phonon (the KDE media library) to use VLC
