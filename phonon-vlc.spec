@@ -1,19 +1,18 @@
-Summary:   VLC Backend for Phonon
 Name:      phonon-vlc
+Summary:   Phonon VLC Backend
+Group:     Video
 Version:   0.4.1
 Release:   1
-Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%version/src/phonon-backend-vlc-%version.tar.xz
 License:   GPLv2+
-Group:     Video
 URL:       http://www.videolan.org/
-
+Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%{version}/src/phonon-backend-vlc-%{version}.tar.xz
+BuildRequires: cmake
+BuildRequires: vlc-devel
+BuildRequires: automoc4
+BuildRequires: phonon-devel >= 2:4.5.0
 Provides:  phonon-backend
 # as a requires it pulls in vlc when building
 Suggests:  vlc-plugin-pulse
-BuildRequires: vlc-devel
-BuildRequires: kde4-macros
-BuildRequires: automoc4
-BuildRequires: phonon-devel >= 2:4.5.0
 
 %description
 This package allows Phonon (the KDE media library) to use VLC
@@ -23,17 +22,13 @@ for audio and video playback.
 %setup -qn phonon-backend-vlc-%version
 
 %build
-%cmake_kde4
+%cmake
 %make
 
 %install
 rm -rf %buildroot
-
 %makeinstall_std -C build
-%clean
-rm -fr %buildroot
 
 %files
-%defattr(-,root,root)
-%_libdir/kde4/plugins/phonon_backend/phonon_vlc.so
-%_datadir/kde4/services/phononbackends/vlc.desktop
+%{_libdir}/kde4/plugins/phonon_backend/phonon_vlc.so
+%{_datadir}/kde4/services/phononbackends/vlc.desktop
