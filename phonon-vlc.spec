@@ -1,8 +1,8 @@
 Name:      phonon-vlc
 Summary:   Phonon VLC Backend
 Group:     Video
-Version:   0.5.0
-Release:   1
+Version:   0.6.0
+Release:   2
 License:   GPLv2+
 URL:       http://www.videolan.org/
 Source0:   ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%{version}/src/phonon-backend-vlc-%{version}.tar.xz
