@@ -1,4 +1,5 @@
 removed_sources:
   phonon-backend-vlc-0.7.1.tar.xz: 6f8e8abae12fdafc63b911b185cb335c65d59450
-sources:
   phonon-backend-vlc-0.8.0.tar.xz: 978f6b15539475e698533b0aeeb988b285a85894
+sources:
+  phonon-backend-vlc-0.8.1.tar.xz: b35c3326a868b1fc84fba4cf1d0a94ce2f931fbf
