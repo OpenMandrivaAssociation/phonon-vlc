@@ -1,7 +1,7 @@
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
 Version:	0.8.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 Url:		http://www.videolan.org/
