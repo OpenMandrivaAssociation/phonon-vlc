@@ -1,11 +1,11 @@
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
-Version:	0.8.2
-Release:	2
+Version:	0.9.0
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://www.videolan.org/
-Source0:	ftp://ftp.kde.org/pub/kde/stable/phonon/phonon-backend-vlc/%{version}/src/phonon-backend-vlc-%{version}.tar.xz
+Source0:	http://download.kde.org/stable/phonon/phonon-backend-vlc/%{version}/phonon-backend-vlc-%{version}.tar.xz
 BuildRequires:	automoc4
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(libvlc)
@@ -26,7 +26,7 @@ video playback.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -qn phonon-backend-vlc-%{version}
+%setup -q
 
 %build
 %cmake
