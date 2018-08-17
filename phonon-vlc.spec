@@ -1,15 +1,19 @@
+%bcond_with qt4
+
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
 Version:	0.10.1
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Video
 Url:		http://www.videolan.org/
 Source0:	http://download.kde.org/stable/phonon/phonon-backend-vlc/%{version}/phonon-backend-vlc-%{version}.tar.xz
+%if %{with qt4}
 BuildRequires:	automoc4
+BuildRequires:	pkgconfig(phonon)
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libvlc)
-BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(phonon4qt5)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Core)
@@ -22,9 +26,11 @@ Suggests:	vlc-plugin-pulse
 This package allows Phonon (the KDE media library) to use VLC for audio and
 video playback.
 
+%if %{with qt4}
 %files
 %{_libdir}/kde4/plugins/phonon_backend/phonon_vlc.so
 %{_datadir}/kde4/services/phononbackends/vlc.desktop
+%endif
 
 %package -n phonon4qt5-vlc
 Summary:	Phonon VLC Backend
@@ -43,11 +49,14 @@ Phonon4Qt5 VLC Backend.
 %prep
 %setup -q
 
+%if %{with qt4}
 mkdir Qt4
 mv `ls -1 |grep -v Qt4` Qt4
 cp -a Qt4 Qt5
+%endif
 
 %build
+%if %{with qt4}
 pushd Qt4
 %cmake -DPHONON_BUILD_PHONON4QT5:BOOL=OFF \
 	-DQT_QMAKE_EXECUTABLE=%{_prefix}/lib/qt4/bin/qmake
@@ -55,13 +64,18 @@ pushd Qt4
 popd
 
 pushd Qt5
+%endif
+
 %cmake_kde5 -DPHONON_BUILD_PHONON4QT5:BOOL=ON \
 	-DQT_QMAKE_EXECUTABLE=%{_libdir}/qt5/bin/qmake
 %ninja
-popd
 
 
 %install
+%if %{with qt4}
 %makeinstall_std -C Qt4/build
 
 %ninja_install -C Qt5/build
+%else
+%ninja_install -C build
+%endif
