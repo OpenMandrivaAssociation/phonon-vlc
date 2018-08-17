@@ -9,7 +9,6 @@ Source0:	http://download.kde.org/stable/phonon/phonon-backend-vlc/%{version}/pho
 BuildRequires:	automoc4
 BuildRequires:	cmake(ECM)
 BuildRequires:	pkgconfig(libvlc)
-BuildRequires:	pkgconfig(phonon)
 BuildRequires:	pkgconfig(phonon4qt5)
 BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Core)
