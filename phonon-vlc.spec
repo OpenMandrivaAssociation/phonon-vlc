@@ -2,8 +2,8 @@
 
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
-Version:	0.10.1
-Release:	4
+Version:	0.10.3
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://www.videolan.org/
@@ -41,7 +41,7 @@ Suggests:	vlc-plugin-pulse
 %description -n phonon4qt5-vlc
 Phonon4Qt5 VLC Backend.
 
-%files -n phonon4qt5-vlc
+%files -n phonon4qt5-vlc -f %{name}.lang
 %{_libdir}/qt5/plugins/phonon4qt5_backend/phonon_vlc.so
 
 #----------------------------------------------------------------------------
@@ -79,3 +79,8 @@ pushd Qt5
 %else
 %ninja_install -C build
 %endif
+
+find %{buildroot}%{_datadir}/locale -name "*.qm" |while read r; do
+	L=`echo $r |rev |cut -d/ -f3 |rev`
+	echo "%%lang($L) %%{_datadir}/locale/$L/LC_MESSAGES/*.qm" >>%{name}.lang
+done
