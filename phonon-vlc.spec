@@ -2,7 +2,7 @@
 
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
-Version:	0.10.3
+Version:	0.11.0
 Release:	1
 License:	GPLv2+
 Group:		Video
@@ -47,7 +47,7 @@ Phonon4Qt5 VLC Backend.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1 -n phonon-backend-vlc-%{version}
 
 %if %{with qt4}
 mkdir Qt4
