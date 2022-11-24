@@ -3,7 +3,7 @@
 Summary:	Phonon VLC Backend
 Name:		phonon-vlc
 Version:	0.11.3
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Video
 Url:		http://www.videolan.org/
@@ -19,8 +19,7 @@ BuildRequires:	pkgconfig(Qt5OpenGL)
 BuildRequires:	pkgconfig(Qt5Core)
 BuildRequires:	pkgconfig(Qt5X11Extras)
 Provides:	phonon-backend
-# as a requires it pulls in vlc when building
-Suggests:	vlc-plugin-pulse
+Requires:	vlc-core
 
 %description
 This package allows Phonon (the KDE media library) to use VLC for audio and
@@ -35,8 +34,7 @@ video playback.
 %package -n phonon4qt5-vlc
 Summary:	Phonon VLC Backend
 Provides:	phonon4qt5-backend
-# as a requires it pulls in vlc when building
-Suggests:	vlc-plugin-pulse
+Requires:	vlc-core
 
 %description -n phonon4qt5-vlc
 Phonon4Qt5 VLC Backend.
